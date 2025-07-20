@@ -24,6 +24,7 @@ import {
   LogIn,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { campusConnectLogo } from "@/assets";
 
 const navigation = [
   { name: "Home", href: "/", icon: Home },
@@ -65,11 +66,13 @@ export default function Layout({ children }: LayoutProps) {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center space-x-2 font-bold text-xl bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
+              className="flex items-center space-x-3 font-bold text-xl bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-bold">
-                C
-              </div>
+              <img 
+                src={campusConnectLogo} 
+                alt="CampusConnect" 
+                className="h-8 w-auto object-contain"
+              />
               CampusConnect
             </Link>
 
@@ -153,10 +156,12 @@ export default function Layout({ children }: LayoutProps) {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px]">
                   <div className="flex flex-col gap-4 py-4">
-                    <div className="flex items-center space-x-2 pb-4 border-b">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-bold">
-                        C
-                      </div>
+                    <div className="flex items-center space-x-3 pb-4 border-b">
+                      <img 
+                        src={campusConnectLogo} 
+                        alt="CampusConnect" 
+                        className="h-6 w-auto object-contain"
+                      />
                       <span className="font-bold text-lg">CampusConnect</span>
                     </div>
                     <nav className="flex flex-col space-y-2">
@@ -189,6 +194,20 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Main Content */}
       <main className="min-h-[calc(100vh-4rem)]">{children}</main>
+
+      {/* Footer */}
+      <footer className="border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
+            <img 
+              src={campusConnectLogo} 
+              alt="CampusConnect" 
+              className="h-6 w-auto object-contain"
+            />
+            <span>CampusConnect © 2024</span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

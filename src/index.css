@@ -41,6 +41,9 @@
     --accent: 220 14% 96%;
     --accent-foreground: 220 13% 18%;
 
+    /* Additional custom colors for loading screen */
+    --primary-light: 217 91% 70%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
