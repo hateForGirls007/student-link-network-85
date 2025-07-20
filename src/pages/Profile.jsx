@@ -127,14 +127,14 @@ export default function Profile() {
     setIsEditing(false);
   };
 
-  const handleDeletePost = (postId: number) => {
+  const handleDeletePost = (postId) => {
     toast({
       title: "Post deleted",
       description: "Your post has been removed successfully.",
     });
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case "Active": return "bg-green-100 text-green-800";
       case "Claimed": return "bg-blue-100 text-blue-800";

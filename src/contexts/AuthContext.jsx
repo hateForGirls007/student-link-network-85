@@ -1,23 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-interface User {
-  id: string;
-  email: string;
-  name: string;
-}
+const AuthContext = createContext(undefined);
 
-interface AuthContextType {
-  user: User | null;
-  login: (email: string, password: string) => Promise<boolean>;
-  register: (name: string, email: string, password: string) => Promise<boolean>;
-  logout: () => void;
-  isLoading: boolean;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +15,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(false);
   }, []);
 
-  const login = async (email: string, password: string): Promise<boolean> => {
+  const login = async (email, password) => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
@@ -47,7 +33,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return false;
   };
 
-  const register = async (name: string, email: string, password: string): Promise<boolean> => {
+  const register = async (name, email, password) => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     

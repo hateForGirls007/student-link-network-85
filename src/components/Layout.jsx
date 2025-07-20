@@ -35,17 +35,13 @@ const navigation = [
   { name: "Notes Sharing", href: "/notes", icon: FileText },
 ];
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
 
-  const isActive = (href: string) => {
+  const isActive = (href) => {
     if (href === "/") {
       return location.pathname === "/";
     }

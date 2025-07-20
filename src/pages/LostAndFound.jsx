@@ -93,7 +93,7 @@ export default function LostAndFound() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
-  const [date, setDate] = useState<Date>();
+  const [date, setDate] = useState();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const filteredItems = mockItems.filter(item => {
@@ -105,7 +105,7 @@ export default function LostAndFound() {
     return matchesSearch && matchesCategory && matchesLocation;
   });
 
-  const handleSubmitItem = (e: React.FormEvent) => {
+  const handleSubmitItem = (e) => {
     e.preventDefault();
     toast({
       title: "Item reported successfully!",
